@@ -31,3 +31,7 @@ Results of the prediction:
 ![image](https://user-images.githubusercontent.com/74694516/180319675-79aa47ed-8c05-4778-b5ea-48b925205973.png)
 
 # Run the application
+In order to run the application at 100% you will have to create an account at https://app.platerecognizer.com/ and get your API KEY as this applications uses its API to read the images.
+
+You Can Find this Application deployed on Heroku
+link: https://pico-placa-predictor-quito.herokuapp.com/
