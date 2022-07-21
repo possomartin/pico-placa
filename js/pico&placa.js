@@ -1,5 +1,6 @@
 const DateInput = document.getElementById('date');
 const PlateInput = document.getElementById('plate');
+const Result = document.getElementById('result');
 
 var PicoDays = {'Monday': [1, 2], 'Tuesday': [3, 4],
 'Wednesday': [5, 6], 'Thursday': [7, 8],'Friday': [9, 0]}
@@ -14,12 +15,27 @@ var lastDigit;
 
 // Variables for working with datetime
 var date;
+
+var times = [];
+
 var hours;
 var minutes;
 
 DateInput.addEventListener('change', (evt) => {
     datetime = evt.target.value;
+
     date = new Date(datetime);
+
+    PicoHours.forEach(element => {
+        let timeDate = new Date(datetime);
+
+        let splitTime = element.split(':');
+
+        timeDate.setHours(Number(splitTime[0]));
+        timeDate.setMinutes(Number(splitTime[1]));
+
+        times.push(timeDate);
+    });
 
 });
 
@@ -33,18 +49,47 @@ predictDate = () =>
     lastDigit = Number(plate.slice(-1));
 
     let day = Object.keys(PicoDays)[date.getDay() - 1];
+    let isPicoDay = false;
+    let isPicoHours = false;
 
-    for(let i = 0; i < PicoDays[day]; i++)
+    console.log(day);
+
+    for(let i = 0; i < PicoDays[day].length; i++)
     {
         if(PicoDays[day][i] === lastDigit)
         {
-            console.log('Tiene Pico & Placa');
-            break;
+
+            isPicoDay = true;
+
+            if(date.getTime() > times[0].getTime() && date.getTime() < times[1].getTime())
+            {
+                console.log(date.time());
+                isPicoHours = true;
+            }
+            else if(date.getTime() > times[2].getTime() && date.getTime() < times[3].getTime())
+            {
+                console.log(date.time());
+                isPicoHours = true;
+            }
         }
+    }
+
+    if(isPicoDay && isPicoHours)
+    {
+        Result.innerText = "Your car has Pico & Placa that day";
+    }
+    else if(isPicoDay && !isPicoHours)
+    {
+        Result.innerText = "Your car has Pico & Placa, but you're not in Pico Hours";
+    }    
+    else
+    {
+        Result.innerText = "Your car has not Pico & Placa that date and time";
     }
 
     console.log(lastDigit);
     console.log(date);
+    console.log(times);
     console.log(PicoDays[day]);
     console.log(date.toString());
 }
