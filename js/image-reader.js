@@ -11,7 +11,7 @@ plate_input.addEventListener('change', async (evt) => {
         "method": "POST",
         "timeout": 0,
         "headers": {
-            "Authorization": "Token " + config.Apikey
+            "Authorization": "Token 3ae81c138569830b922503bc1842de7314ad5474"
         },
         "processData": false,
         "mimeType": "multipart/form-data",
