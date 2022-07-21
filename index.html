@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pico & Placa</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="page-container vertical">
+        <div class="title-container">
+            <h2>PICO & PLACA</h2>
+        </div>
+        <div class="container vertical">
+            <section class="form vertical">
+                <div class="input-container">
+                    <label for="date">DATE: </label>
+                    <input class="date-input" type="datetime-local" name="date" id="date">
+                </div>
+                <div class="plate-container horizontal">
+                    <label for="plate">PLATE:</label>
+                    <input class="plate-input" type="text" name="plate" id="plate" placeholder="Enter your License Plate">
+                    <input class="upload-input" type="file" name="plate-image" id="plate-image">
+                    <label class="upload-btn" for="plate-image">
+                        <i class="fa-solid fa-camera"></i>
+                    </label>
+                </div>
+                <button class="btn" onclick="predictDate()">PREDICT</button>
+            </section>
+            <section class="result">
+                <h2>Result:</h2>
+            </section>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/image-reader.js" type="module"></script>
+    <script src="js/pico&placa.js"></script>
+</body>
+</html>

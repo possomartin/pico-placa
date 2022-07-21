@@ -1,0 +1,129 @@
+body
+{
+    padding: 0;
+    margin: 0;
+
+    color: #648B80;
+}
+
+.vertical
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.horizontal
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.page-container
+{
+    justify-content: center;
+    align-items: center;
+}
+
+.container
+{
+    /*justify-content: center;*/
+    /*align-items: center;*/
+
+    /*background: #ECECEC;*/
+    background: linear-gradient(180deg, #ECECEC 75%, white 25%);
+
+    box-shadow: 0px 2px 3px 3px gainsboro;
+    border-radius: 8px;
+
+    padding: 20px 40px;
+    margin: 20px;
+}
+
+.form
+{
+    padding: 20px 40px;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.plate-container
+{
+    justify-content: center;
+    align-items: center;
+}
+
+.form input
+{
+    margin: 20px;
+
+    border: none;
+    border-radius: 0px 20px 0px 20px;
+    box-shadow: 0px 2px 5px 0px grey;    
+}
+
+.date-input
+{
+    padding: 20px 5px;
+}
+
+.plate-input
+{
+    padding: 5px 10px;
+}
+.upload-input
+{
+    display: none;
+    box-shadow: none;
+    border-radius: 0px;
+}
+
+.upload-btn
+{
+    cursor: pointer;
+
+    padding: 10px;
+
+    border-radius: 50%;
+    box-shadow: 0px 2px 5px 0px grey;
+
+    transition: transform ease 1.5s;
+}
+
+.upload-btn:hover
+{
+    transform: scale(1.1);
+}
+
+.form input:focus
+{
+    outline: none;
+    box-shadow: 0px 2px 8px 1px grey;
+}
+
+.btn
+{
+    margin: 10px 5px;
+    padding: 5px 20px;
+
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px 0px grey;
+
+    color: white;
+    background: #648B80;
+
+    cursor: pointer;
+
+    transition: transform ease 1.5s;
+}
+
+.btn:hover
+{
+    box-shadow: 0px 2px 8px 1px grey;
+    transform: scale(1.1);
+}
+
+.result
+{
+}
