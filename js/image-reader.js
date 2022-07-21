@@ -1,26 +1,34 @@
 const plate_input = document.getElementById("plate-image");
+const plate_text = document.getElementById('plate');
 
-var data = new FormData();
+var body = new FormData();
 
-plate_input.addEventListener('change', (evt) => {
-    data.append('imageFile', evt.target.files[0]);
-
+plate_input.addEventListener('change', async (evt) => {
+    body.append('upload', evt.target.files[0]);
+    body.append("regions", "ec");
     var settings = {
-        "url": "https://api.cloudmersive.com/image/recognize/detect-vehicle-license-plates",
+        "url": "https://api.platerecognizer.com/v1/plate-reader/",
         "method": "POST",
         "timeout": 0,
         "headers": {
-            "Content-Type": "multipart/form-data",
-            "Apikey": "7de9c9e8-6187-4144-ab75-9e54729a6594"
+            "Authorization": "Token " + config.Apikey
         },
         "processData": false,
         "mimeType": "multipart/form-data",
         "contentType": false,
-        "data": data
+        "data": body,
     };
 
-    $.ajax(settings).done((response) => {
-        console.log(response);
-    })    
+    const getResources = async () => {
+        var res;
+        await $.ajax(settings).done( async (response) => {
+            res = response;
+        });
 
+        return res;
+    }
+
+    var result = await getResources();
+    plate_text.value = JSON.parse(result).results[0].plate;
+    plate_text.dispatchEvent(new Event('change'));
 });

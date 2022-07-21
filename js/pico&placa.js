@@ -22,6 +22,7 @@ var hours;
 var minutes;
 
 DateInput.addEventListener('change', (evt) => {
+    times = [];
     datetime = evt.target.value;
 
     date = new Date(datetime);
@@ -45,6 +46,8 @@ PlateInput.addEventListener('change', (evt) => {
 
 predictDate = () =>
 {
+    Result.innerText = "";
+
     // Get last digit of plate
     lastDigit = Number(plate.slice(-1));
 
@@ -63,28 +66,30 @@ predictDate = () =>
 
             if(date.getTime() > times[0].getTime() && date.getTime() < times[1].getTime())
             {
-                console.log(date.time());
                 isPicoHours = true;
             }
             else if(date.getTime() > times[2].getTime() && date.getTime() < times[3].getTime())
             {
-                console.log(date.time());
                 isPicoHours = true;
             }
         }
     }
 
+    Result.innerText += `It's a ${day}\n`;
     if(isPicoDay && isPicoHours)
     {
-        Result.innerText = "Your car has Pico & Placa that day";
+        Result.innerText += "Your car has Pico & Placa that date and Time";
+        Result.style = 'color: #C69074;';
     }
     else if(isPicoDay && !isPicoHours)
     {
-        Result.innerText = "Your car has Pico & Placa, but you're not in Pico Hours";
+        Result.innerText += "Your car has Pico & Placa, but you're not in Pico Hours";
+        Result.style = 'color: #B1A05E;';
     }    
     else
     {
-        Result.innerText = "Your car has not Pico & Placa that date and time";
+        Result.innerText += "Your car has not Pico & Placa that date and time";
+        Result.style = 'color: #7899C5;';
     }
 
     console.log(lastDigit);
