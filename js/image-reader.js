@@ -11,7 +11,7 @@ plate_input.addEventListener('change', (evt) => {
         "timeout": 0,
         "headers": {
             "Content-Type": "multipart/form-data",
-            "Apikey": "7de9c9e8-6187-4144-ab75-9e54729a6594"
+            "Apikey": "YOUR-API-KEY"
         },
         "processData": false,
         "mimeType": "multipart/form-data",
